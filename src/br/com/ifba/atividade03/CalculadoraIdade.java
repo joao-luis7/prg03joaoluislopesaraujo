@@ -11,7 +11,7 @@ package br.com.ifba.atividade03;
 public class CalculadoraIdade {
     
     public int calcularIdade(int anoNascimento){
-        int anoAtual = 2025;
+        int anoAtual = 2026;
         return anoAtual - anoNascimento;
     }
 }
