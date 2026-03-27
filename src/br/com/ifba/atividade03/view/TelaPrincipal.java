@@ -132,23 +132,32 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_txtAnoActionPerformed
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        //pega o texto digitado pelo usuario
         String texto = txtAno.getText();
-
+        
+        //verifica se o campo ta vazio
         if(texto.equals("")){
             lblResultado.setText("Digite o ano");
         } else {
+            //converte o texto pra inteiro
             int ano = Integer.parseInt(texto);
             
-            if(ano > 2026){
+            //veriifca se o ano é maior que o atual
+            if(ano > 2026){ 
                 lblResultado.setText("Ano Inválido");
-                lblResultado.setForeground(Color.red);
+                lblResultado.setForeground(Color.red); 
             } else{
+                //cria objeto responsavel pelo calculo
                 br.com.ifba.atividade03.CalculadoraIdade calc = new br.com.ifba.atividade03.CalculadoraIdade();
-
+                
+                //calcula a idade
                 int idade = calc.calcularIdade(ano);
 
+                //exibe na tela
                 lblResultado.setText("Sua idade é: " + idade);
+                //muda a cor do texto assim que o botao é apertado
                 lblResultado.setForeground(Color.BLUE);
+                //deixa o texto em negrito
                 lblResultado.setFont(lblResultado.getFont().deriveFont(Font.BOLD));
             }
         }
