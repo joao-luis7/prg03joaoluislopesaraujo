@@ -15,9 +15,10 @@ public class ContaBanco {
     private double saldo;
     private boolean status;
 
+    // construtor: Define o estado inicial ao criar uma nova conta
     public ContaBanco() {
         this.saldo = 0.0;
-        this.status = false;
+        this.status = false; //toda conta começa fechada
     }
 
     public int getNumConta() {
@@ -60,7 +61,7 @@ public class ContaBanco {
         this.status = status;
     }
     
-    
+    //Define dono, tipo e da um bonus inicial
     public void abrirConta(String tipo, String dono){
         //Só abre uma nova conta se estiver FECHADA
         if (!this.isStatus()){
@@ -85,6 +86,7 @@ public class ContaBanco {
         }
     }
     
+    //fecha a conta: verifica se não tem dinheiro ou dívida
     public void fecharConta(){
         if(!this.isStatus()){
             System.out.println("ERRO: A conta precisa estar aberta");
@@ -95,7 +97,7 @@ public class ContaBanco {
             return;
         }
      
-        this.setStatus(false);
+        this.setStatus(false); //desativa a conta
         System.out.println("Conta fechada com sucesso!");
     }
     
@@ -155,9 +157,9 @@ public class ContaBanco {
         double valor_mensalidade = 0;
         //verificar qual tipo de conta
         if (this.getTipo().equals("cc")){
-           valor_mensalidade = 12; //valor da mensalidade descontado
+           valor_mensalidade = 12; //valor da mensalidade descontado cc
         }else{
-            valor_mensalidade = 20; //valor da mensalidade descontado em CP
+            valor_mensalidade = 20; //valor da mensalidade descontado em cp
         }
         this.setSaldo(this.getSaldo() - valor_mensalidade);
         System.out.println("A Mensalidade foi paga com sucesso!");

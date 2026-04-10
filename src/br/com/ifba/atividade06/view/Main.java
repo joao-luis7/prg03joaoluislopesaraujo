@@ -11,7 +11,7 @@ import java.util.Scanner;
  */
 public class Main {
     public static void main (String[] args){
-       Scanner sc = new Scanner(System.in);
+       Scanner sc = new Scanner(System.in); //scanner pra ler teclado
        ContaBanco conta = new ContaBanco();
        int opcao;
        
@@ -28,8 +28,8 @@ public class Main {
             System.out.println("0. Sair");
             System.out.println("Escolha uma opcao: ");
             
-            opcao = sc.nextInt();
-            sc.nextLine();
+            opcao = sc.nextInt(); // le o número digitado pelo usuário
+            sc.nextLine(); // limpeza de buffer
             
             switch(opcao){
                 case 1:
