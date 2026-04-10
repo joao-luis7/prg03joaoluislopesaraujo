@@ -86,25 +86,35 @@ public class telaFatorial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
-        int n = (int)spnValor.getValue(); //pegando o valor do spinner
-        
-       if (n < 0){
-           JOptionPane.showMessageDialog(this, "Para funcionar, o número deve ser maior que 0", "ERRO", JOptionPane.ERROR_MESSAGE);
-       }
-       else{
-           Fatorial fatorial = new Fatorial();
-           fatorial.setValor(n);
-           
-           if (n >= 1){
-               lblFormula.setText(fatorial.getFormula() + " =");
-           }
-           else{
-               lblFormula.setText("Caso especial!");
-           }
-           lblResultado.setText(Integer.toString(fatorial.getFatorial()));
-       }
-    }//GEN-LAST:event_btnCalcularActionPerformed
+        // pega o número que o usuário selecionou no spinner
+        int n = (int)spnValor.getValue(); 
 
+        // validação: fatorial não existe para números negativos
+        if (n < 0){
+            JOptionPane.showMessageDialog(this, "Para funcionar, o número deve ser maior que 0", "ERRO", JOptionPane.ERROR_MESSAGE);
+        }
+        else {
+            // cria um novo objeto da classe Fatorial
+            Fatorial fatorial = new Fatorial();
+            fatorial.setValor(n); // Passa o número para a classe
+
+            // logica para exibir a fórmula na tela
+            if (n >= 1){
+                // Mostra a sequência
+                lblFormula.setText(fatorial.getFormula() + " =");
+            }
+            else {
+                // Caso o número seja 0 (0! é 1 por definição, um "caso especial")
+                lblFormula.setText("Caso especial!");
+            }
+
+            // pega o resultado final do cálculo e mostra no rótulo de resultado
+            lblResultado.setText(Integer.toString(fatorial.getFatorial()));
+        }
+    }//GEN-LAST:event_btnCalcularActionPerformed
+    
+    
+    
     /**
      * @param args the command line arguments
      */
